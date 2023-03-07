@@ -36,11 +36,19 @@ function pageCount(n: number, p: number): number {
     // Write your code here
     
     //page p is always at most _dist_ away from cover?
-        
     let dist = Math.min(Math.abs(p-n),p)
     
+    //base case
+    if(p === 1){
+      return 0
+    }
+    
+    //even pages finish on final page formula doesn't work for them
+    if(dist ==1 && n%2 === 0){
+        return 1
+    }
+        
     return Math.floor(dist/2)
-
 }
 
 function main() {
